@@ -1,192 +1,424 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../HomePage/HomePage.css'
-import ilustracion1 from '../../assets/ilustracion1.svg'
-import cliente1 from '../../assets/face1.jpg'
-import cliente2 from '../../assets/face2.jpg'
-import b1 from '../../assets/bodega1.png'
-import b2 from '../../assets/bodega2.png'
-import b3 from '../../assets/bodega3.png'
-import b4 from '../../assets/bodega4.png'
-import cb2 from '../../assets/cbodega2.png'
-import cb4 from '../../assets/cbodega4.png'
-import cb5 from '../../assets/cbodega5.png'
-import camara from '../../assets/seguridad.png'
-import carro from '../../assets/carro.png'
-import aire from '../../assets/aire.png'
 
 export const HomePage = () => {
+    function img(anything) {
+        document.querySelector('.slide').src = anything;
+    }
+
+    function change(change) {
+        const line = document.querySelector('.image');
+        line.style.background = change;
+    }
+
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hambuger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hambuger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hambuger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+        accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+        var itemClass = this.parentNode.className;
+        for (var i = 0; i < accItem.length; i++) {
+            accItem[i].className = 'accordionItem close';
+        }
+        if (itemClass == 'accordionItem close') {
+            this.parentNode.className = 'accordionItem open';
+        }
+    }
+
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+
     return (
         <>
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet" />
 
+            <head>
+                <title>Hotel Website</title>
+            </head>
+
             <body>
-                <header>
-                    <nav>
-                        <a href="#QS">¿Quienes Somos?</a>
-                        <a href="#Carrousel">Bodegas</a>
-                        <a href="#Services">Servicios</a>
-                        <Link to='/login'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
-                                <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707l-4.096 4.096z" />
-                            </svg>
-                        </Link>
-                    </nav>
-                    <section className="textos-header">
-                        <h1>Bienvenido a nuestra almacenadora</h1>
-                        <h2>KINAL S.A</h2>
-                    </section>
+                <header class="header" id="navigation-menu">
+                    <div class="container">
+                        <nav>
+                            <a href="#" class="logo"> <img src="image/logo.png" alt="" /> </a>
+
+                            <ul class="nav-menu">
+                                <li> <a href="#home" class="nav-link">Home</a> </li>
+                                <li> <a href="#about" class="nav-link">About</a> </li>
+                                <li> <a href="#rooms" class="nav-link">Rooms</a> </li>
+                                <li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
+                                <li> <a href="#gallery" class="nav-link">Gallery</a> </li>
+                                <li> <a href="#contact" class="nav-link">Contact</a> </li>
+                            </ul>
+
+                            <div class="hambuger">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                        </nav>
+                    </div>
                 </header>
-                <main>
-                    <section id='QS' className="contenedor sobre-nosotros">
-                        <h2 className="titulo">¿Quienes Somos?</h2>
-                        <div className="contenedor-sobre-nosotros">
-                            <img src={ilustracion1} alt="" className="imagen-about-us" />
-                            <div className="contenido-textos">
-                                <h3><span>1</span>Almacenadora del pueblo</h3>
-                                <p>Almacenadora Kinal S.A, somos una empresa con más de 50 años de experiencia en la República de Guatemala,
-                                    que cuenta con todo una infraestructura, equipo y personal de trabajo especializado en brindar los
-                                    mejores servicios, de manera segura, confiable y eficaz.</p>
-                                <h3><span>2</span>Misión</h3>
-                                <p>Nuestra misión es ofrecer un servicio seguro, confiable y eficaz a todos nuestros clientes,
-                                    contamos con distintos precios, muy accesibles y cómodos..</p>
+                //AQUI VAN LAS FUNCIONES JAVASCRIPT
+
+                <section class="home" id="home">
+                    <div class="head_container">
+                        <div class="box">
+                            <div class="text">
+                                <h1>Hello.Salut.Hola</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                <button>MORE INFO</button>
                             </div>
                         </div>
-                    </section>
-                    <section id='Carrousel'>
-                        <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
-                            <div className="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div className="carousel-inner">
-                                <div className="carousel-item active">
-                                    <img src={cb2} className="d-block w-100" alt="..." />
-                                    <div className="carousel-caption d-none d-md-block">
-                                        <h5>Bodega Manzanos</h5>
-                                        <p>Zona 4, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="carousel-item">
-                                    <img src={cb4} className="d-block w-100" alt="..." />
-                                    <div className="carousel-caption d-none d-md-block">
-                                        <h5>Bodega Viñas de Cristal</h5>
-                                        <p>Zona 10, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="carousel-item">
-                                    <img src={cb5} className="d-block w-100" alt="..." />
-                                    <div className="carousel-caption d-none d-md-block">
-                                        <h5>Bodega Los Amigos</h5>
-                                        <p>Zona 2, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span className="visually-hidden">Previous</span>
-                            </button>
-                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span className="visually-hidden">Next</span>
-                            </button>
+                        <div class="image">
+                            <img src="image/home1.jpg" class="slide" />
                         </div>
-                    </section>
-                    <section className="clientes contenedor">
-                        <h2 className="titulo">Que dicen nuestros clientes</h2>
-                        <div className="cards">
-                            <div className="card">
-                                <img src={cliente1} alt="" />
-                                <div className="contenido-texto-card">
-                                    <h4>Jennifer Peréz</h4>
-                                    <p>Excelente servicio, estoy muy satisfecha con la seguridad</p>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <img src={cliente2} alt="" />
-                                <div className="contenido-texto-card">
-                                    <h4>Andrea Casas</h4>
-                                    <p>Muy satisfecha con el servicio y el personal</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="portafolio">
-                        <div className="contenedor">
-                            <h2 className="titulo">Nuestras bodegas mas populares:</h2>
-                            <div className="galeria-port">
-                                <div className="imagen-port">
-                                    <img src={b1} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "El Sol"</p>
-                                        <p>Zona 4, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="imagen-port">
-                                    <img src={b2} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "Maderos"</p>
-                                        <p>Zona 6, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="imagen-port">
-                                    <img src={b3} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "La luz"</p>
-                                        <p>Zona 14, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                                <div className="imagen-port">
-                                    <img src={b4} alt="" />
-                                    <div className="hover-galeria">
-                                        <p>Bodega "El Mar"</p>
-                                        <p>Zona 3, Ciudad de Guatemala</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section id='Services' className="about-services">
-                        <div className="contenedor">
-                            <h2 className="titulo">Nuestros servicios</h2>
-                            <div className="servicio-cont">
-                                <div className="servicio-ind">
-                                    <img src={camara} alt="" />
-                                    <h3>Seguridad Mejorada</h3>
-                                    <p>Contamos con un servicio de cámaras de seguridad que graban las 24 hrs del dia y graban los 7 dias de la semana</p>
-                                </div>
-                                <div className="servicio-ind">
-                                    <img src={aire} alt="" />
-                                    <h3>Aire Acondicionado</h3>
-                                    <p>Contamos con el servicio de aire acondicionado profesional</p>
-                                </div>
-                                <div className="servicio-ind">
-                                    <img src={carro} alt="" />
-                                    <h3>Transporte</h3>
-                                    <p>Contamos con una solución rápida, segura, confiable y eficiente para que nuestros clientes puedan trasladar sus productos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </main>
-                <footer>
-                    <div className="contenedor-footer">
-                        <div className="content-foo">
-                            <h4>Teléfono Contacto</h4>
-                            <p>(502) 2418-0062</p>
-                        </div>
-                        <div className="content-foo">
-                            <h4>Correo Electrónico</h4>
-                            <p>kinal_s.a@gmail.com</p>
-                            <p>kinal_s.a@outlook.com</p>
-                        </div>
-                        <div className="content-foo">
-                            <h4>Ubicación</h4>
-                            <p>6A Avenida 13-54, Cdad. de Guatemala</p>
+                        <div class="image_item">
+                            <img src="image/home1.jpg" alt="" class="slide active" onclick="img('image/home1.jpg')" />
+                            <img src="image/home2.jpg" alt="" class="slide" onclick="img('image/home2.jpg')" />
+                            <img src="image/home3.jpg" alt="" class="slide" onclick="img('image/home3.jpg')" />
+                            <img src="image/home4.jpg" alt="" class="slide" onclick="img('image/home4.jpg')" />
                         </div>
                     </div>
-                    <h2 className="titulo-final">&copy; KINAL S.A</h2>
+                </section>
+
+                <section class="book">
+                    <div class="container flex">
+                        <div class="input grid">
+                            <div class="box">
+                                <label>Check-in:</label>
+                                <input type="date" placeholder="Check-in-Date" />
+                            </div>
+                            <div class="box">
+                                <label>Check-out:</label>
+                                <input type="date" placeholder="Check-out-Date" />
+                            </div>
+                            <div class="box">
+                                <label>Adults:</label>
+                                <input type="number" placeholder="0" />
+                            </div>
+                            <div class="box">
+                                <label>Children:</label>
+                                <input type="number" placeholder="0" />
+                            </div>
+                        </div>
+                        <div class="search">
+                            <input type="submit" value="SEARCH" />
+                        </div>
+                    </div>
+                </section>
+                <section class="about top" id="about">
+                    <div class="container flex">
+                        <div class="left">
+                            <div class="img">
+                                <img src="image/a1.jpg" alt="" class="image1" />
+                                <img src="image/a2.jpg" alt="" class="image2" />
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="heading">
+                                <h5>RAISING COMFOMRT TO THE HIGHEST LEVEL</h5>
+                                <h2>Welcome to Luviana Hotel Resort</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <button class="btn1">READ MORE</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="wrapper top">
+                    <div class="container">
+                        <div class="text">
+                            <h2>Our Amenities</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+                            <div class="content">
+                                <div class="box flex">
+                                    <i class="fas fa-swimming-pool"></i>
+                                    <span>Swimming pool</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <span>Gym & yogo</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-spa"></i>
+                                    <span>Spa & massage</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-ship"></i>
+                                    <span>Boat Tours</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-swimmer"></i>
+                                    <span>Surfing Lessons</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Conference room</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-water"></i>
+                                    <span>Diving & smorking</span>
+                                </div>
+                                <div class="box flex">
+                                    <i class="fas fa-umbrella-beach"></i>
+                                    <span>Private Beach</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="room top" id="room">
+                    <div class="container">
+                        <div class="heading_top flex1">
+                            <div class="heading">
+                                <h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+                                <h2>Rooms $ Suites</h2>
+                            </div>
+                            <div class="button">
+                                <button class="btn1">VIEW ALL</button>
+                            </div>
+                        </div>
+
+                        <div class="content grid">
+                            <div class="box">
+                                <div class="img">
+                                    <img src="image/r1.jpg" alt="" />
+                                </div>
+                                <div class="text">
+                                    <h3>Superior Soble Rooms</h3>
+                                    <p> <span>$</span>129 <span>/per night</span> </p>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="img">
+                                    <img src="image/r2.jpg" alt="" />
+                                </div>
+                                <div class="text">
+                                    <h3>Superior Soble Rooms</h3>
+                                    <p> <span>$</span>129 <span>/per night</span> </p>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="img">
+                                    <img src="image/r3.jpg" alt="" />
+                                </div>
+                                <div class="text">
+                                    <h3>Superior Soble Rooms</h3>
+                                    <p> <span>$</span>129 <span>/per night</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="wrapper wrapper2 top">
+                    <div class="container">
+                        <div class="text">
+                            <div class="heading">
+                                <h5>AT THE HEART OF COMMUNICATION</h5>
+                                <h2>People Say</h2>
+                            </div>
+
+                            <div class="para">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+                                <div class="box flex">
+                                    <div class="img">
+                                        <img src="image/c.jpg" alt="" />
+                                    </div>
+                                    <div class="name">
+                                        <h5>KATE PALMER</h5>
+                                        <h5>IDAHO</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="restaurant top" id="restaurant">
+                    <div class="container flex">
+                        <div class="left">
+                            <img src="image/re.jpg" alt="" />
+                        </div>
+                        <div class="right">
+                            <div class="text">
+                                <h2>Our Restaurant</h2>
+                                <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="accordionWrapper">
+                                <div class="accordionItem open">
+                                    <h2 class="accordionIHeading">Italian Kitchen</h2>
+                                    <div class="accordionItemContent">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordionItem close">
+                                    <h2 class="accordionIHeading">Mexican Kitchen</h2>
+                                    <div class="accordionItemContent">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordionItem close">
+                                    <h2 class="accordionIHeading">Italian Kitchen</h2>
+                                    <div class="accordionItemContent">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordionItem close">
+                                    <h2 class="accordionIHeading">Mexican Kitchen</h2>
+                                    <div class="accordionItemContent">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+//AQUI VAN FUNCIONES JAVASCRIPT
+
+                <section class="gallary mtop " id="gallary">
+                    <div class="container">
+                        <div class="heading_top flex1">
+                            <div class="heading">
+                                <h5>WELCOME TO OUR PHOTO GALLERY</h5>
+                                <h2>Photo Gallery of Our Hotel</h2>
+                            </div>
+                            <div class="button">
+                                <button class="btn1">VIEW GALLERY</button>
+                            </div>
+                        </div>
+
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <img src="image/g1.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g2.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g3.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g4.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g5.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g6.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g7.jpg" alt="" />
+                            </div>
+                            <div class="item">
+                                <img src="image/g8.jpg" alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                //aqui van funciones JAVASCRIPT
+                <section class="map top">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14131.036667732067!2d85.32395955!3d27.69383745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1637755481449!5m2!1sen!2snp" width="600" height="450" style="border:0;"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </section>
+
+
+                <footer>
+                    <div class="container grid top">
+                        <div class="box">
+                            <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+                            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                            <p>Accepted payment methods</p>
+                            <div class="payment grid">
+                                <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                                <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+                                <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+                                <img src="https://img.icons8.com/fluency/48/000000/amex.png" />
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <h3>Recent News</h3>
+
+                            <ul>
+                                <li>Our Secret Island Boat Tour Is Just for You</li>
+                                <li>Chill and Escape in Our Natural Shelters</li>
+                                <li>September in Luviana Hotel</li>
+                                <li>Live Music Concerts at Luviana</li>
+                            </ul>
+                        </div>
+
+                        <div class="box">
+                            <h3>For Customers</h3>
+                            <ul>
+                                <li>About Luviana</li>
+                                <li>Customer Care/Help</li>
+                                <li>Corporate Accounts</li>
+                                <li>Financial Information</li>
+                                <li>Terms & Conditions</li>
+                            </ul>
+                        </div>
+
+                        <div class="box">
+                            <h3>Contact Us</h3>
+
+                            <ul>
+                                <li>3015 Grand Ave, Cocount Grove, Merrick Way FL 123456</li>
+                                <li><i class="far fa-envelope"></i>demoexample@gmail.com </li>
+                                <li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+                                <li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+                                <li><i class="far fa-comments"></i>24/ 7 Customer Services </li>
+                            </ul>
+                        </div>
+                    </div>
                 </footer>
             </body>
         </>
