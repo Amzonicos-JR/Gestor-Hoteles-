@@ -25,7 +25,8 @@ export const TableUser = () => {
                 surname: document.getElementById('inputSurname').value,
                 username: document.getElementById('inputUsername').value,
                 password: document.getElementById('inputPassword').value,
-                phone: document.getElementById('inputPhone').value
+                phone: document.getElementById('inputPhone').value,
+                role: document.getElementById('inputRole').value
             }
             const { data } = await axios.post('http://localhost:3000/user/save', users)
             alert(data.message)
@@ -55,7 +56,8 @@ export const TableUser = () => {
                 document.getElementById('inputSurname').value = '',
                 document.getElementById('inputUsername').value = '',
                 document.getElementById('inputPassword').value = '',
-                document.getElementById('inputPhone').value = ''
+                document.getElementById('inputPhone').value = '',
+                document.getElementById('inputRole').value = ''
         } catch (error) {
             console.log(error)
         }
@@ -109,6 +111,10 @@ export const TableUser = () => {
                                     <div>
                                         <label htmlFor="inputPhone" className="form-label">Phone</label>
                                         <input type="text" className="form-control" id="inputPhone" required />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="inputRole" className="form-label">Role</label>
+                                        <input type="text" className="form-control" id="inputRole" required />
                                     </div>
                                 </form>
                             </div>

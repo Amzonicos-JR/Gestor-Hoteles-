@@ -58,7 +58,7 @@ export const Table = () => {
             if (confirmDelete) {
                 const { data } = await axios.delete(`http://localhost:3000/account/delete-account/${id}`)
                 getAccounts()
-                alert(`${data.message}: ${data.deleteAccount.name}`)
+                alert(`${data.message}`)
             }
         } catch (err) {
             console.error(err)
