@@ -38,7 +38,7 @@ export const Index = () => {
                     element: <LoginPage></LoginPage>
                 },
                 {
-                    path: '/dashboard',
+                    path: '/home',
                     element: <DashboardPage></DashboardPage>
                 },
             ]
