@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
+import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 import App from './App'
 
 export const AuthContext = createContext();
@@ -14,19 +15,19 @@ export const Index = () => {
         name: '',
         username: '',
         role: ''
-      })
+    })
 
-      const [isAdmin, setIsAdmin] = useState(true);
-      useEffect(() => {
-          let token = localStorage.getItem('token')
-          if (token) setLoggedIn(true)
-      }, [])
+    const [isAdmin, setIsAdmin] = useState(true);
+    useEffect(() => {
+        let token = localStorage.getItem('token')
+        if (token) setLoggedIn(true)
+    }, [])
 
     const routes = createBrowserRouter([
         {
             path: '/',
-            element: <App/>,
-            errorElement: <NotFound/>,
+            element: <App />,
+            errorElement: <NotFound />,
             children: [
                 {
                     path: '/',
@@ -35,7 +36,11 @@ export const Index = () => {
                 {
                     path: '/login',
                     element: <LoginPage></LoginPage>
-                }
+                },
+                {
+                    path: '/dashboard',
+                    element: <DashboardPage></DashboardPage>
+                },
             ]
         }
     ])
