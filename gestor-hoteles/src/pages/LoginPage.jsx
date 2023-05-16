@@ -33,7 +33,7 @@ export const LoginPage = () => {
         localStorage.setItem('token', data.token)
         setDataUser(data.userLogged)
         setLoggedIn(true)
-        navigate('/')
+        navigate('/home')
       }
     } catch (err) {
       console.log(err)
