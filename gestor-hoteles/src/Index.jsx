@@ -11,6 +11,7 @@ import { InvoiceDetailPage } from './pages/InvoiceDetail/InvoiceDetailPage';
 import { GetInvoicesDetails } from './pages/InvoiceDetail/GetInvoicesDetails';
 import { AddInvoiceDetail } from './pages/InvoiceDetail/AddInvoiceDetail';
 import { UpdateInvoiceDetail } from './pages/InvoiceDetail/UpdateInvoiceDetail';
+import { GetInvoiceDetailasPage } from './pages/InvoiceDetail/GetInvoiceDetailasPage';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -52,6 +53,10 @@ export const Index = () => {
                 {
                     path: 'update/:_id',
                     element: <UpdateInvoiceDetail></UpdateInvoiceDetail>
+                },
+                {
+                    path: 'additionalservices/:_id',
+                    element: <GetInvoiceDetailasPage></GetInvoiceDetailasPage>
                 }
             ]
         }

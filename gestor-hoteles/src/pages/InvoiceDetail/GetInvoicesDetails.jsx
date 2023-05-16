@@ -1,16 +1,93 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const GetInvoicesDetails = () => {
+  const [invoicesdetails, setInvoicesDetails] = useState([{}]);
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: localStorage.getItem("token"),
+  };
+
+  const getInvoicesDetails = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:3000/invoicedetail/get",
+        {
+          headers: headers,
+        }
+      );
+      if (data.invoiceDetails) {
+        setInvoicesDetails(data.invoiceDetails);
+        console.log(data.invoiceDetails);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error(err.response.message || "Error getting invoices details");
+    }
+  };
+
+  const deleteInvoiceDetail = async (id) => {
+    try {
+      let confirmDelete = confirm(
+        `Estas seguro de eliminar este invoice detail`
+      );
+      if (confirmDelete) {
+        const { data } = await axios.delete(
+          `http://localhost:3000/invoicedetail/delete/${id}`
+        );
+        getInvoicesDetails();
+        alert(`${data.message}`);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error(err.response.message || "Error deleted invoices details");
+    }
+  };
+
+  useEffect(() => {
+    getInvoicesDetails();
+  }, []);
+
   return (
     <>
-      <Link to={"add"}>
-        <button className="btn btn-danger">+Add</button>
-      </Link>
-      <Link to={`update/${111}`}>
-        <button className="btn btn-danger">+Actualizar</button>
-      </Link>      
-      <h2>Get invoices details</h2>
+      <div className="container">
+        <div className="center-block">
+          <h1> Get Invoices Details </h1>
+          <Link to={"add"}>
+            <button className="btn btn-danger">+Add</button>
+          </Link>
+          {invoicesdetails.map(({ _id, booking, subTotalAccount }, i) => (
+            <>
+              <div
+                className="card border-info mb-3"
+                style={{ maxWidth: "18rem" }}
+              >
+                <div className="card-header">{booking}</div>
+                <div className="card-body">
+                  <Link to={`additionalservices/${_id}`} className="btn btn-info">
+                    <p className="card-text">Servicios</p>
+                  </Link>
+                  <p className="card-text">Eventos</p>
+                  <h5 className="card-title">Total: {subTotalAccount}</h5>
+                  <div className="card-body">
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deleteInvoiceDetail(_id)}
+                    >
+                      Eliminar
+                    </button>
+                    <Link to={`update/${_id}`}>
+                      <button className="btn btn-warning">+Actualizar</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
