@@ -18,6 +18,7 @@ import { BillPage } from './pages/Bill/BillPage';
 import { GetBills } from './pages/Bill/GetBills';
 import { AddBill } from './pages/Bill/AddBill';
 import { UpdateBill } from './pages/Bill/UpdateBill';
+import { GetBill } from './pages/Bill/GetBill';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -84,6 +85,10 @@ export const Index = () => {
                 {
                     path: 'update/:_id',
                     element: <UpdateBill></UpdateBill>
+                },
+                {
+                    path: 'get/:_id',
+                    element: <GetBill></GetBill>
                 }
             ]
         }

@@ -43,6 +43,9 @@ export const GetBills = () => {
                   <Link to={`update/${_id}`}>
                     <button className="btn btn-warning">+Actualizar</button>
                   </Link>
+                  <Link to={`get/${_id}`}>
+                    <button className="btn btn-info">See details</button>
+                  </Link>                  
                 </div>
               </div>
             </div>

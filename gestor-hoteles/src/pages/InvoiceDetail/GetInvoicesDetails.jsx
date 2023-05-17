@@ -80,9 +80,9 @@ export const GetInvoicesDetails = () => {
                     >
                       Eliminar
                     </button>
-                    <Link to={`update/${_id}`}>
+{/*                     <Link to={`update/${_id}`}>
                       <button className="btn btn-warning">+Actualizar</button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
