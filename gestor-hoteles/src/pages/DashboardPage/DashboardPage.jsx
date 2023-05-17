@@ -3,11 +3,6 @@ import "../DashboardPage/DashBoardStyle.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
-import { AccountPage } from "../AccountPage/AccountPage";
-import { LeasesPage } from "../LeasesPage/LeasesPage";
-import UsersPage from "../UsersPage/UsersPage";
-import { ServicePage } from "../ServicesPage/ServicesPage";
-import CellarPage from "../CellarPage/CellarPage";
 
 export const DashboardPage = () => {
   const { isAdmin, setLoggedIn, dataUser } = useContext(AuthContext);
