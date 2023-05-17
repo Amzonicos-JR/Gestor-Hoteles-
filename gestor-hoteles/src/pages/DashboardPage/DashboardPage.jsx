@@ -61,15 +61,20 @@ export const DashboardPage = () => {
             {/* <!-- elementos del menu responsive --> */}
             <div className="collapse navbar-collapse" id="menu">
               <ul className="navbar-nav me-auto">
-                {isAdmin === "ADMINAM" ? (
+                {dataUser.role === "ADMINAM" ? (
                   <>
+                    <li className="nav-item">
+                      <Link to={"rooms"} className="nav-link">
+                        Room<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                     <li className="nav-item">
                       <Link className="nav-link">
                         ADMINAM<i className="bi bi-star-fill"></i>
                       </Link>
                     </li>
                   </>
-                ) : isAdmin === "ADMIN" ? (
+                ) : dataUser.role === "ADMIN" ? (
                   <>
                     <li className="nav-item">
                       <Link to={"invoicedetail"} className="nav-link">
@@ -93,7 +98,7 @@ export const DashboardPage = () => {
                       <Link className="nav-link">
                         CLIENT<i className="bi bi-star-fill"></i>
                       </Link>
-                    </li> 
+                    </li>
                   </>
                 )}
               </ul>

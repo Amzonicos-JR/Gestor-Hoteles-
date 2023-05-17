@@ -6,6 +6,12 @@ import { LoginPage } from './pages/LoginPage';
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 
+/* ADMINAM [ROUTES] */
+// ROOMS [ROUTES]
+import { RoomPage } from './pages/Rooms/RoomPage';
+import { Room } from '../src/components/Room/Room'
+
+/* ADMIN [ROUTES] */
 //invoices details
 import { InvoiceDetailPage } from './pages/InvoiceDetail/InvoiceDetailPage';
 import { GetInvoicesDetails } from './pages/InvoiceDetail/GetInvoicesDetails';
@@ -19,6 +25,7 @@ import { GetBills } from './pages/Bill/GetBills';
 import { AddBill } from './pages/Bill/AddBill';
 import { UpdateBill } from './pages/Bill/UpdateBill';
 import { GetBill } from './pages/Bill/GetBill';
+import GetRooms from './pages/Rooms/GetRooms';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -29,22 +36,33 @@ export const Index = () => {
         name: '',
         username: '',
         role: ''
-      })
+    })
 
-      const [isAdmin, setIsAdmin] = useState('ADMIN');
-      useEffect(() => {
-          let token = localStorage.getItem('token')
-          if (token) setLoggedIn(true)
-      }, [])
-      
-      const ADMINAMRoutes = [
+    const [isAdmin, setIsAdmin] = useState('ADMIN');
+    useEffect(() => {
+        let token = localStorage.getItem('token')
+        if (token) setLoggedIn(true)
+    }, [])
+
+    const ADMINAMRoutes = [
+        {
+            path: 'rooms',
+            element: <RoomPage></RoomPage>,
+            children: [
+                {
+                    path: '',
+                    element: <GetRooms></GetRooms>
+                    // add, update
+                },
+            ]
+        }
         //EVENTO
         //SERVICIOS
         //HABITACIONES
         //HOTELES
-      ]
+    ]
 
-      const ADMINRoutes = [
+    const ADMINRoutes = [
         {
             path: 'invoicedetail',
             element: <InvoiceDetailPage></InvoiceDetailPage>,
@@ -70,7 +88,7 @@ export const Index = () => {
                     element: <GetInvoiceDetailEvents></GetInvoiceDetailEvents>
                 }
             ]
-        },{
+        }, {
             path: 'bill',
             element: <BillPage></BillPage>,
             children: [
@@ -95,17 +113,17 @@ export const Index = () => {
         //HOTEL
         //DETALLE CUENTA
         //FACTURA
-      ]
+    ]
 
-      const CLIENTRoutes = [
+    const CLIENTRoutes = [
         //RESERVACIÓN
-      ]
+    ]
 
     const routes = createBrowserRouter([
         {
             path: '/',
-            element: <App/>,
-            errorElement: <NotFound/>,
+            element: <App />,
+            errorElement: <NotFound />,
             children: [
                 {
                     path: '/',
@@ -117,15 +135,15 @@ export const Index = () => {
                 },
                 {
                     path: '/home',
-                    element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>, 
-                    children: isAdmin === "ADMINAM" ? ADMINAMRoutes :
-                    isAdmin === "ADMIN" ? ADMINRoutes : CLIENTRoutes
+                    element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
+                    children: dataUser.role === "ADMINAM" ? ADMINAMRoutes :
+                        dataUser.role === "ADMIN" ? ADMINRoutes : CLIENTRoutes
                 },
             ]
         }
     ])
     return (
-        <AuthContext.Provider value={{isAdmin, loggedIn, setLoggedIn, dataUser, setDataUser }}>
+        <AuthContext.Provider value={{ isAdmin, loggedIn, setLoggedIn, dataUser, setDataUser }}>
             <RouterProvider router={routes}></RouterProvider>
         </AuthContext.Provider>
     )
