@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import { Navbar } from '../components/Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Index'
@@ -13,7 +12,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -34,7 +33,7 @@ export const LoginPage = () => {
         localStorage.setItem('token', data.token)
         setDataUser(data.userLogged)
         setLoggedIn(true)
-        navigate('/dashboard')
+        navigate('/home')
       }
     } catch (err) {
       console.log(err)
@@ -65,8 +64,8 @@ export const LoginPage = () => {
 
                   <div className="form-outline mb-4">
                     <input
-                      type="text" id="loginUser" name='username' onChange={handleChange} placeholder='UserName' className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="form2Example18">Username</label>
+                      type="text" id="loginUser" name='email' onChange={handleChange} placeholder='Email' className="form-control form-control-lg" />
+                    <label className="form-label" htmlFor="form2Example18">Email</label>
                   </div>
 
                   <div className="form-outline mb-4">
