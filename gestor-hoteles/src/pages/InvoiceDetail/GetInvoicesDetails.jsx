@@ -69,7 +69,9 @@ export const GetInvoicesDetails = () => {
                   <Link to={`additionalservices/${_id}`} className="btn btn-info">
                     <p className="card-text">Servicios</p>
                   </Link>
-                  <p className="card-text">Eventos</p>
+                  <Link to={`events/${_id}`} className="btn btn-info">
+                    <p className="card-text">Eventos</p>
+                  </Link>
                   <h5 className="card-title">Total: {subTotalAccount}</h5>
                   <div className="card-body">
                     <button

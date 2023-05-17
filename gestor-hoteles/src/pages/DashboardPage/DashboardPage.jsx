@@ -42,18 +42,18 @@ export const DashboardPage = () => {
       />
       <div>
         {/* <!-- Inicio del menu --> */}
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-          <div class="container-fluid">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+          <div className="container-fluid">
             {/* <!-- icono o nombre --> */}
-            <a class="navbar-brand active">
-              <i class="bi bi-person-circle"></i>
-              <Link to={''}>
-                <span class="text-info"> Dashboard</span>
+            <a className="navbar-brand active">
+              <i className="bi bi-person-circle"></i>
+              <Link to={""}>
+                <span className="text-info"> Dashboard</span>
               </Link>
             </a>
             {/* <!-- boton del menu para resolucion movil --> */}
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#menu"
@@ -61,52 +61,71 @@ export const DashboardPage = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
             {/* <!-- elementos del menu responsive --> */}
-            <div class="collapse navbar-collapse" id="menu">
-              <ul class="navbar-nav me-auto">
-                {isAdmin === "admin" ? (
+            <div className="collapse navbar-collapse" id="menu">
+              <ul className="navbar-nav me-auto">
+                {isAdmin === "ADMINAM" ? (
                   <>
-                    <h1 style={{ color: "#fff" }}>You are admin</h1>
+                    <li className="nav-item">
+                      <Link className="nav-link">
+                        ADMINAM<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                   </>
-                ) : isAdmin === "user" ? (
+                ) : isAdmin === "ADMIN" ? (
                   <>
-                    <h1 style={{ color: "#fff" }}>You are user</h1>
-                    <Link to={"invoicedetail"} className="btn btn-danger">
-                      Invoices Details
-                    </Link>
+                    <li className="nav-item">
+                      <Link to={"invoicedetail"} className="nav-link">
+                        Invoices Details<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"bill"} className="nav-link">
+                        Bills<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link">
+                        ADMIN<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                   </>
                 ) : (
                   <>
-                    <h1 style={{ color: "#fff" }}>You are client</h1>
+                    <li className="nav-item">
+                      <Link className="nav-link">
+                        CLIENT<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li> 
                   </>
                 )}
               </ul>
-              <hr class="d-md-none text-white-50" />
+              <hr className="d-md-none text-white-50" />
               {/* <!-- Iconos redes sociales --> */}
-              <ul class="navbar-nav  flex-row flex-wrap text-light">
-                <li class="nav-item col-6 col-md-auto p-3">
-                  <i class="bi bi-twitter"></i>
-                  <small class="d-md-none ms-2">Twitter</small>
+              <ul className="navbar-nav  flex-row flex-wrap text-light">
+                <li className="nav-item col-6 col-md-auto p-3">
+                  <i className="bi bi-twitter"></i>
+                  <small className="d-md-none ms-2">Twitter</small>
                 </li>
-                <li class="nav-item col-6 col-md-auto p-3">
-                  <i class="bi bi-github"></i>
-                  <small class="d-md-none ms-2">GitHub</small>
+                <li className="nav-item col-6 col-md-auto p-3">
+                  <i className="bi bi-github"></i>
+                  <small className="d-md-none ms-2">GitHub</small>
                 </li>
-                <li class="nav-item col-6 col-md-auto p-3">
-                  <i class="bi bi-whatsapp"></i>
-                  <small class="d-md-none ms-2">WhatsApp</small>
+                <li className="nav-item col-6 col-md-auto p-3">
+                  <i className="bi bi-whatsapp"></i>
+                  <small className="d-md-none ms-2">WhatsApp</small>
                 </li>
-                <li class="nav-item col-6 col-md-auto p-3">
-                  <i class="bi bi-facebook"></i>
-                  <small class="d-md-none ms-2">Facebook</small>
+                <li className="nav-item col-6 col-md-auto p-3">
+                  <i className="bi bi-facebook"></i>
+                  <small className="d-md-none ms-2">Facebook</small>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <div class="content">{activeView === "user" && <UsersPage />}</div>
+        <div className="content">{activeView === "user" && <UsersPage />}</div>
         {/* <!-- Script para responsive - movil--> */}
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

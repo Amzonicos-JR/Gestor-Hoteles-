@@ -12,6 +12,12 @@ import { GetInvoicesDetails } from './pages/InvoiceDetail/GetInvoicesDetails';
 import { AddInvoiceDetail } from './pages/InvoiceDetail/AddInvoiceDetail';
 import { UpdateInvoiceDetail } from './pages/InvoiceDetail/UpdateInvoiceDetail';
 import { GetInvoiceDetailasPage } from './pages/InvoiceDetail/GetInvoiceDetailasPage';
+import { GetInvoiceDetailEvents } from './pages/InvoiceDetail/GetInvoiceDetailEvents';
+//Bills
+import { BillPage } from './pages/Bill/BillPage';
+import { GetBills } from './pages/Bill/GetBills';
+import { AddBill } from './pages/Bill/AddBill';
+import { UpdateBill } from './pages/Bill/UpdateBill';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -24,20 +30,20 @@ export const Index = () => {
         role: ''
       })
 
-      const [isAdmin, setIsAdmin] = useState('user');
+      const [isAdmin, setIsAdmin] = useState('ADMIN');
       useEffect(() => {
           let token = localStorage.getItem('token')
           if (token) setLoggedIn(true)
       }, [])
       
-      const adminRoutes = [
+      const ADMINAMRoutes = [
         //EVENTO
         //SERVICIOS
         //HABITACIONES
         //HOTELES
       ]
 
-      const userRoutes = [
+      const ADMINRoutes = [
         {
             path: 'invoicedetail',
             element: <InvoiceDetailPage></InvoiceDetailPage>,
@@ -57,6 +63,27 @@ export const Index = () => {
                 {
                     path: 'additionalservices/:_id',
                     element: <GetInvoiceDetailasPage></GetInvoiceDetailasPage>
+                },
+                {
+                    path: 'events/:_id',
+                    element: <GetInvoiceDetailEvents></GetInvoiceDetailEvents>
+                }
+            ]
+        },{
+            path: 'bill',
+            element: <BillPage></BillPage>,
+            children: [
+                {
+                    path: '',
+                    element: <GetBills></GetBills>
+                },
+                {
+                    path: 'add',
+                    element: <AddBill></AddBill>
+                },
+                {
+                    path: 'update/:_id',
+                    element: <UpdateBill></UpdateBill>
                 }
             ]
         }
@@ -65,7 +92,7 @@ export const Index = () => {
         //FACTURA
       ]
 
-      const clientRoutes = [
+      const CLIENTRoutes = [
         //RESERVACIÓN
       ]
 
@@ -86,8 +113,8 @@ export const Index = () => {
                 {
                     path: '/home',
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>, 
-                    children: isAdmin === "admin" ? adminRoutes :
-                    isAdmin === "user" ? userRoutes : clientRoutes
+                    children: isAdmin === "ADMINAM" ? ADMINAMRoutes :
+                    isAdmin === "ADMIN" ? ADMINRoutes : CLIENTRoutes
                 },
             ]
         }
