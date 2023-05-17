@@ -79,17 +79,17 @@
     animation: changetext 10s infinite linear;
 }
 @keyframes changetext{
-    0%{content: "France";}
-    10%{content: "Spain";}
-    20%{content: "United States";}
+    0%{content: "Francia";}
+    10%{content: "España";}
+    20%{content: "Estados Unidos";}
     30%{content: "China";}
-    40%{content: "India";}
-    50%{content: "Pakistan";}
-    60%{content: "Italy";}
-    70%{content: "Turkey";}
-    80%{content: "Mexico";}
-    90%{content: "Germany";}
-    100%{content: "United kingdom";}
+    40%{content: "Italia";}
+    50%{content: "Turquía";}
+    60%{content: "Mexico";}
+    70%{content: "Alemania";}
+    80%{content: "Guatemala";}
+    90%{content: "Brasil";}
+    100%{content: "Colombia";}
 } 
 .home .content p{
     color: white;
@@ -331,7 +331,6 @@
     }
 }
 /* About End */
-
 
 
 

@@ -16,8 +16,19 @@ import india from "../../assets/india.png"
 import italy from "../../assets/italy.png"
 import logo from "../../assets/logo.png"
 import pakistan from "../../assets/pakistan.png"
-import uk from "../../assets/uk.png"
+import valencia from "../../assets/Valencia.png"
+import barcelo from "../../assets/Barcelo.png"
 import us from "../../assets/us.png"
+import luxor from "../../assets/Luxor.png"
+import times from "../../assets/Times.png"
+import flamingo from "../../assets/Flamingo.png"
+import excalibur from "../../assets/Excalibur.png"
+import popular1 from "../../assets/Popular1.png"
+import popular2 from "../../assets/Popular2.png"
+import popular3 from "../../assets/Popular3.png"
+import popular4 from "../../assets/Popular4.png"
+import popular5 from "../../assets/Popular5.png"
+import popular6 from "../../assets/Popular6.png"
 
 export const HomePage = () => {
   return (
@@ -26,18 +37,18 @@ export const HomePage = () => {
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap"
         rel="stylesheet"
       />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossOrigin="anonymous"/>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymus"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"></link>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossOrigin="anonymous" />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymus" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"></link>
 
       <body>
         <nav className="navbar navbar-expand-lg" id="navbar">
           <div className="container">
-            <a className="navbar-brand"  id="logo">
-              <span>T</span>ravel
+            <a className="navbar-brand" id="logo">
+              <span>K</span>inalgo
             </a>
             <button
               className="navbar-toggler"
@@ -52,62 +63,55 @@ export const HomePage = () => {
             <div className="collapse navbar-collapse" id="mynavbar">
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
-                    <Link to='homepage'>
-                  <a className="nav-link active">
-                    Home
-                  </a>
-                    </Link>
+                  
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#book">
-                    Book
+                    Reserva
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#packages">
-                    Packages
+                    Ofertas
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#services">
-                    Services
+                    Beneficios
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#gallary">
-                    Gallary
+                    Populares
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#about">
-                    About
+                    Conoce Sobre Nosotros
                   </a>
                 </li>
               </ul>
-                <button className="btn btn-primary" type="button">
-                  Search
-                </button>
+              
             </div>
           </div>
         </nav>
         <div className="home">
           <div className="content">
-            <h5>Welcome To World</h5>
+            <h5>Bienvenido a <span>K</span>inalgo </h5>
             <h1>
-              Visit <span className="changecontent"></span>
+              Visita <span className="changecontent"></span>
             </h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae,
-              nisi.
+              Somos la mejor opción en ofertas de hoteles 
             </p>
-            <a href="#book">Book Place</a>
+            <a href="#about">Conocenos</a>
           </div>
         </div>
         <section className="book" id="book">
           <div className="container">
             <div className="main-text">
               <h1>
-                <span>B</span>ook
+                <span>R</span>eserva <span>Y</span>a
               </h1>
             </div>
             <div className="row">
@@ -121,14 +125,14 @@ export const HomePage = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Where To"
+                    placeholder="Nombre de Hotel"
                     required
                   />
                   <br />
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="How Many"
+                    placeholder="Cantidad de Personas"
                     required
                   />
                   <br />
@@ -150,11 +154,11 @@ export const HomePage = () => {
                     className="form-control"
                     rows="5"
                     name="text"
-                    placeholder="Enter Your Name & Details"
+                    placeholder="Ingrese datos persona de la reservacion"
                   ></textarea>
                   <input
                     type="submit"
-                    value="Book Now"
+                    value="Reservar"
                     className="submit"
                     required
                   />
@@ -163,23 +167,22 @@ export const HomePage = () => {
             </div>
           </div>
         </section>
-        Start
+        
         <section className="packages" id="packages">
           <div className="container">
             <div className="main-txt">
               <h1>
-                <span>P</span>ackages
+                <span>O</span>fertas
               </h1>
             </div>
-            <div className="row" style={{marginTop: 30+'px'}}>
+            <div className="row" style={{ marginTop: 30 + 'px' }}>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={uk} alt="" />
+                  <img src={valencia} alt="" />
                   <div className="card-body">
-                    <h3>United Kingdom</h3>
+                    <h3>Hotel Valencia</h3>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Ut, doloribus!
+                      Hotel Valencia y haz de tu estancia en la ciudad una experiencia única e inolvidable. Alójate en el centro histórico de la ciudad de Valencia
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
@@ -189,91 +192,90 @@ export const HomePage = () => {
                       <i className="fa-solid fa-star "></i>
                     </div>
                     <h6>
-                      Price: <strong>$500</strong>
+                      Price: <strong>$250</strong>
                     </h6>
-                    <a href="#book">Book Now</a>
+                    <a href="#book">Reserva ahora</a>
                   </div>
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={france} alt="" />
+                  <img src={barcelo} alt="" />
                   <div className="card-body">
-                    <h3>France</h3>
+                    <h3>Hotel Barcelo</h3>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Ut, doloribus!
+                      Este hotel urbano de 5 estrellas dispone de 397 elegantes habitaciones equipadas
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star checked"></i>
-                      <i className="fa-solid fa-star "></i>
-                      <i className="fa-solid fa-star "></i>
+                      <i className="fa-solid fa-star checked"></i>
+                      <i className="fa-solid fa-star checked"></i>
                     </div>
                     <h6>
-                      Price: <strong>$500</strong>
+                      Price: <strong>$100</strong>
                     </h6>
-                    <a href="#book">Book Now</a>
+                    <a href="#book">Reserva ahora</a>
                   </div>
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={pakistan} alt="" />
+                  <img src={luxor} alt="" />
                   <div className="card-body">
-                    <h3>Pakistan</h3>
+                    <h3>Luxor Hotel & Casino</h3>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Ut, doloribus!
+                      Es un hotel de 4 estrellas conocido
+                      por su forma piramidal inspirada en el Antiguo Egipto.
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star checked"></i>
-                      <i className="fa-solid fa-star "></i>
+                      <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star "></i>
                     </div>
                     <h6>
-                      Price: <strong>$500</strong>
+                      Price: <strong>$300</strong>
                     </h6>
-                    <a href="#book">Book Now</a>
+                    <a href="#book">Reserva ahora</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="row" style={{marginTop: 30+'px'}}>
+            <div className="row" style={{ marginTop: 30 + 'px' }}>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={italy} alt="" />
+                  <img src={times} alt="" />
                   <div className="card-body">
-                    <h3>Italy</h3>
+                    <h3>Hotel Times Square</h3>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Ut, doloribus!
+                    Hotel Times Square  para disfrutar de un lujoso alojamiento,
+                    modernas amenidades y servicios de primera clase.
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star checked"></i>
                       <i className="fa-solid fa-star checked"></i>
-                      <i className="fa-solid fa-star "></i>
-                      <i className="fa-solid fa-star "></i>
+                      <i className="fa-solid fa-star checked"></i>
+                      <i className="fa-solid fa-star checked"></i>
                     </div>
                     <h6>
                       Price: <strong>$500</strong>
                     </h6>
-                    <a href="#book">Book Now</a>
+                    <a href="#book">Reserva ahora</a>
                   </div>
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={india} alt="" />
+                  <img src={flamingo} alt="" />
                   <div className="card-body">
-                    <h3>India</h3>
+                    <h3>Flamingo Hotel & Casino</h3>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Ut, doloribus!
+                    Flamingo Las Vegas Hotel & Casino es un complejo hotelero de 
+                    3 estrellas que alberga unas completas instalaciones
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
@@ -285,18 +287,18 @@ export const HomePage = () => {
                     <h6>
                       Price: <strong>$500</strong>
                     </h6>
-                    <a href="#book">Book Now</a>
+                    <a href="#book">Reserva ahora</a>
                   </div>
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={us} alt="" />
+                  <img src={excalibur} alt="" />
                   <div className="card-body">
-                    <h3>United States</h3>
+                    <h3>Excalibur Hotel Casino</h3>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Ut, doloribus!
+                    Excalibur Hotel Casino, de 3 estrellas, se encuentra en pleno 
+                    centro de la privilegiada zona de Las Vegas Strip.
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
@@ -308,7 +310,7 @@ export const HomePage = () => {
                     <h6>
                       Price: <strong>$500</strong>
                     </h6>
-                    <a href="#book">Book Now</a>
+                    <a href="#book">Reserva ahora</a>
                   </div>
                 </div>
               </div>
@@ -319,18 +321,17 @@ export const HomePage = () => {
           <div className="container">
             <div className="main-txt">
               <h1>
-                <span>S</span>ervices
+                <span>B</span>eneficios
               </h1>
             </div>
-            <div className="row" style={{marginTop: 30+'px'}}>
+            <div className="row" style={{ marginTop: 30 + 'px' }}>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
                   <i className="fas fa-hotel"></i>
                   <div className="card-body">
-                    <h3>Affordable Hotel</h3>
+                    <h3>Los mejores Hoteles</h3>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      A, eaque.
+                     Trabajamos con los mejores hoteles de cada país para mejor comodida para nuestros clíentes. 
                     </p>
                   </div>
                 </div>
@@ -339,10 +340,9 @@ export const HomePage = () => {
                 <div className="card">
                   <i className="fas fa-utensils"></i>
                   <div className="card-body">
-                    <h3>Food & Drinks</h3>
+                    <h3>Comidas & Drinks</h3>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      A, eaque.
+                     Cada reservacion de hotel cuenta con buffet incluido, como tambien bebidas incluidas en el bar.
                     </p>
                   </div>
                 </div>
@@ -351,24 +351,22 @@ export const HomePage = () => {
                 <div className="card">
                   <i className="fas fa-bullhorn"></i>
                   <div className="card-body">
-                    <h3>Safty Guide</h3>
+                    <h3>Guía de Seguridad</h3>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      A, eaque.
+                      También cuenta con guia personal , para conocer los lugares más turisticos en la zona. 
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="row" style={{marginTop: 30+'px'}}>
+            <div className="row" style={{ marginTop: 30 + 'px' }}>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
                   <i className="fas fa-globe-asia"></i>
                   <div className="card-body">
-                    <h3>Around The World</h3>
+                    <h3>Alrededor del mundo</h3>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      A, eaque.
+                      Trabajamos con los mejores hoteles en todos los paises del mundo. 
                     </p>
                   </div>
                 </div>
@@ -377,10 +375,9 @@ export const HomePage = () => {
                 <div className="card">
                   <i className="fas fa-plane"></i>
                   <div className="card-body">
-                    <h3>Fastest Travel</h3>
+                    <h3>Viajes Seguros</h3>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      A, eaque.
+                      Trabajamos con las mejores compañías aerolineas para mejor servicio. 
                     </p>
                   </div>
                 </div>
@@ -389,10 +386,9 @@ export const HomePage = () => {
                 <div className="card">
                   <i className="fas fa-hiking"></i>
                   <div className="card-body">
-                    <h3>Adventures</h3>
+                    <h3>Actividades</h3>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      A, eaque.
+                      Contamos con actividades como tenis, cata de vinos, natación y mucho más. 
                     </p>
                   </div>
                 </div>
@@ -404,40 +400,40 @@ export const HomePage = () => {
           <div className="container">
             <div className="main-txt">
               <h1>
-                <span>G</span>allary
+                <span>H</span>oteles Mas Populares
               </h1>
             </div>
-            <div className="row" style={{marginTop: 30+'px'}}>
+            <div className="row" style={{ marginTop: 30 + 'px' }}>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={g1} alt="" height="230px" />
+                  <img src={popular1} alt="" height="230px" />
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={g2} alt="" height="230px" />
+                  <img src={popular2} alt="" height="230px" />
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={g3} alt="" height="230px" />
+                  <img src={popular1} alt="" height="230px" />
                 </div>
               </div>
             </div>
-            <div className="row" style={{marginTop: 30+'px'}}>
+            <div className="row" style={{ marginTop: 30 + 'px' }}>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={g4} alt="" height="230px" />
+                  <img src={popular4} alt="" height="230px" />
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={g5} alt="" height="230px" />
+                  <img src={popular5} alt="" height="230px" />
                 </div>
               </div>
               <div className="col-md-4 py-3 py-md-0">
                 <div className="card">
-                  <img src={g6} alt="" height="230px" />
+                  <img src={popular6} alt="" height="230px" />
                 </div>
               </div>
             </div>
@@ -447,39 +443,37 @@ export const HomePage = () => {
           <div className="container">
             <div className="main-txt">
               <h1>
-                About <span>Us</span>
+              <span>C</span>onoce <span>S</span>obre <span>N</span>osotros 
               </h1>
             </div>
-            <div className="row" style={{marginTop: 50+'px'}}>
+            <div className="row" style={{ marginTop: 50 + 'px' }}>
               <div className="col-md-6 py-3 py-md-0">
                 <div className="card">
                   <img src={aboutImg} alt="" />
                 </div>
               </div>
               <div className="col-md-6 py-3 py-md-0">
-                <h2>How Travel Agency Work</h2>
+                <h2>¿Quienes Somos?</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident perferendis dolorem, numquam earum at nam beatae
-                  voluptate natus consectetur facere, saepe cupiditate ut
-                  exercitationem deserunt, facilis quam perspiciatis autem iure
-                  illo harum minima. Quas, vitae aperiam laudantium alias
-                  asperiores nulla rerum, nihil eveniet perferendis sint illum
-                  accusamus officiis aliquam nam.
+                  Kinalgo S.A, Somos una Empresa de hotelería  dedicada a proporcionar servicios de alojamiento y
+                  hospitalidad a los huéspedes que viajan por placer o negocios.Trabajamos con diferentes hoteles alrededor del mundo que operan hoteles,
+                  resorts, posadas u otras formas de alojamiento temporal.
                 </p>
-                <button id="about-btn">Read More...</button>
+                <h2>Mision</h2>
+                <p>
+                Nuestra misión es ofrecer un servicio seguro, confiable y eficaz a todos nuestros clientes, contamos 
+                con distintos precios, muy accesibles y cómodos..
+                </p>
+                
               </div>
             </div>
           </div>
         </section>
         <footer id="footer">
           <h1>
-            <span>T</span>ravel
+            <span>K</span>inalgo
           </h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
-            fugiat, ipsa quos nulla qui alias.
-          </p>
+
           <div className="social-links">
             <i className="fa-brands fa-twitter"></i>
             <i className="fa-brands fa-facebook"></i>
@@ -487,13 +481,9 @@ export const HomePage = () => {
             <i className="fa-brands fa-youtube"></i>
             <i className="fa-brands fa-pinterest-p"></i>
           </div>
-          <div className="credit">
-            <p>
-              Designed By <a href="#">SA Coding</a>
-            </p>
-          </div>
+
           <div className="copyright">
-            <p>&copy;Copyright SA Coding. All Rights Reserved</p>
+            <p>&copy;Copyright 2023 Kinalgo All Rights Reserved</p>
           </div>
         </footer>
         <script
