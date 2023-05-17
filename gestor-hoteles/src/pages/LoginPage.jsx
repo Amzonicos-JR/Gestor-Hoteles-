@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { Navbar } from '../components/Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Index'
@@ -33,7 +34,7 @@ export const LoginPage = () => {
         localStorage.setItem('token', data.token)
         setDataUser(data.userLogged)
         setLoggedIn(true)
-        navigate('/home')
+        navigate('/dashboard')
       }
     } catch (err) {
       console.log(err)
