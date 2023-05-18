@@ -30,8 +30,8 @@ export const LoginPage = () => {
       console.log(data.user)
       if (data.message) {
         alert(data.message)
-        localStorage.setItem('token', data.token)
-        // localStorage.setItem('data', data.userLogged)
+        localStorage.setItem('_id', data.userLogged._id)
+        localStorage.setItem('role', data.userLogged.role)
         setDataUser(data.userLogged)
         console.log(data, 'data', data.userLogged, 'ulogedd')
         setLoggedIn(true)
@@ -78,10 +78,7 @@ export const LoginPage = () => {
                   <div className="pt-1 mb-4">
                     <button onClick={(e) => logIn(e)} type="button" className="btn btn-secondary">Login</button>
                   </div>
-
-
                 </form>
-
               </div>
 
             </div>

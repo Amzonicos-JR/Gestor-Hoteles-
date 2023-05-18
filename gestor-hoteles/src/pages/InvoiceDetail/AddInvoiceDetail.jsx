@@ -22,11 +22,11 @@ export const AddInvoiceDetail = () => {
         "http://localhost:3000/invoicedetail/add",
         form
       );
-      if (data.message) {
+      if(data.message) {
         alert(data.message)
         //cambiar de vista  
         navigate("/home/invoicedetail")
-      }
+    }
     } catch (err) {
       console.log(err);
       alert(err.response?.data.message);
@@ -51,13 +51,13 @@ export const AddInvoiceDetail = () => {
             />
           </div>
 
-          <button
-            onClick={(e) => addInvoiceDetail(e)}
-            type="button"
-            className="btn btn-primary btn-lg btn-block"
-          >
-            Agregar
-          </button>
+            <button
+              onClick={(e) => addInvoiceDetail(e)}
+              type="button"
+              className="btn btn-primary btn-lg btn-block"
+            >
+              Agregar
+            </button>
 
           <Link to={"/home/invoicedetail"}>
             <button type="button" className="btn btn-primary btn-lg btn-block">

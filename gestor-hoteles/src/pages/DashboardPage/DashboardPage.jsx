@@ -5,7 +5,7 @@ import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
 
 export const DashboardPage = () => {
-  const { isAdmin, setLoggedIn, dataUser } = useContext(AuthContext);
+  const { isAdmin, setLoggedIn, role } = useContext(AuthContext);
   const navigate = useNavigate();
   const [activeView, setActiveView] = useState(null);
 
@@ -61,26 +61,20 @@ export const DashboardPage = () => {
             {/* <!-- elementos del menu responsive --> */}
             <div className="collapse navbar-collapse" id="menu">
               <ul className="navbar-nav me-auto">
-                {dataUser.role === "ADMINAM" ? (
+                {role === "ADMINAM" ? (
                   <>
-                    {/* <li className="nav-item">
+                    <li className="nav-item">
                       <Link to={"rooms"} className="nav-link">
                         Room<i className="bi bi-star-fill"></i>
                       </Link>
-                    </li> */}
+                    </li>
                     <li className="nav-item">
                       <Link className="nav-link">
                         ADMINAM<i className="bi bi-star-fill"></i>
                       </Link>
                     </li>
-                    <li onClick={logOut} className="nav-item">
-                      <Link className="nav-link">
-                        <i class="bi bi-box-arrow-left"></i>
-                      </Link>
-                    </li>
-
                   </>
-                ) : dataUser.role === "ADMIN" ? (
+                ) : role === "ADMIN" ? (
                   <>
                     <li className="nav-item">
                       <Link to={"invoicedetail"} className="nav-link">
@@ -100,11 +94,6 @@ export const DashboardPage = () => {
                   </>
                 ) : (
                   <>
-                    <li className="nav-item">
-                      <Link to={"rooms"} className="nav-link">
-                        Room<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
                     <li className="nav-item">
                       <Link className="nav-link">
                         CLIENT<i className="bi bi-star-fill"></i>
