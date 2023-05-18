@@ -31,6 +31,7 @@ export const LoginPage = () => {
       if (data.message) {
         alert(data.message)
         localStorage.setItem('token', data.token)
+        // localStorage.setItem('data', data.userLogged)
         setDataUser(data.userLogged)
         console.log(data, 'data', data.userLogged, 'ulogedd')
         setLoggedIn(true)

@@ -9,7 +9,7 @@ import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 /* ADMINAM [ROUTES] */
 // ROOMS [ROUTES]
 import { RoomPage } from './pages/Rooms/RoomPage';
-import { Room } from '../src/components/Room/Room'
+import { AddRoom } from './pages/Rooms/addRoom';
 
 /* ADMIN [ROUTES] */
 //invoices details
@@ -25,7 +25,6 @@ import { GetBills } from './pages/Bill/GetBills';
 import { AddBill } from './pages/Bill/AddBill';
 import { UpdateBill } from './pages/Bill/UpdateBill';
 import { GetBill } from './pages/Bill/GetBill';
-import GetRooms from './pages/Rooms/GetRooms';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -41,7 +40,8 @@ export const Index = () => {
     const [isAdmin, setIsAdmin] = useState('ADMIN');
     useEffect(() => {
         let token = localStorage.getItem('token')
-        if (token) setLoggedIn(true)
+        // let data = localStorage.getItem('data')
+        if (token ) setLoggedIn(true)
     }, [])
 
     const ADMINAMRoutes = [
@@ -50,8 +50,8 @@ export const Index = () => {
             element: <RoomPage></RoomPage>,
             children: [
                 {
-                    path: '',
-                    element: <GetRooms></GetRooms>
+                    path: 'add',
+                    element: <AddRoom></AddRoom>
                     // add, update
                 },
             ]
