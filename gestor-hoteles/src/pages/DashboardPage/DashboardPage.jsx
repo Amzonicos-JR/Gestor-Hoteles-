@@ -5,7 +5,7 @@ import { AuthContext } from "../../Index";
 import { Outlet, Link } from "react-router-dom";
 
 export const DashboardPage = () => {
-  const { isAdmin, setLoggedIn, dataUser } = useContext(AuthContext);
+  const { isAdmin, setLoggedIn, role } = useContext(AuthContext);
   const navigate = useNavigate();
   const [activeView, setActiveView] = useState(null);
 
@@ -15,6 +15,8 @@ export const DashboardPage = () => {
     user: false,
     account: false,
     service: false,
+    reservation: false,
+    reservations: false
   });
 
   const logOut = () => {
@@ -61,15 +63,30 @@ export const DashboardPage = () => {
             {/* <!-- elementos del menu responsive --> */}
             <div className="collapse navbar-collapse" id="menu">
               <ul className="navbar-nav me-auto">
-                {isAdmin === "ADMINAM" ? (
+                {role === "ADMINAM" ? (
                   <>
+                    <li className="nav-item">
+                      <Link to={"reservations"} className="nav-link">
+                        Reservations<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"rooms"} className="nav-link">
+                        Room<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                     <li className="nav-item">
                       <Link className="nav-link">
                         ADMINAM<i className="bi bi-star-fill"></i>
                       </Link>
                     </li>
+                    <li onClick={() => logOut()} className="nav-item">
+                      <Link className="nav-link">
+                        LogOut<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                   </>
-                ) : isAdmin === "ADMIN" ? (
+                ) : role === "ADMIN" ? (
                   <>
                     <li className="nav-item">
                       <Link to={"invoicedetail"} className="nav-link">
@@ -86,14 +103,29 @@ export const DashboardPage = () => {
                         ADMIN<i className="bi bi-star-fill"></i>
                       </Link>
                     </li>
+                    <li onClick={() => logOut()} className="nav-item">
+                      <Link className="nav-link">
+                        LogOut<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                   </>
                 ) : (
                   <>
                     <li className="nav-item">
+                      <Link to={"reservation"} className="nav-link">
+                        Reservation<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
                       <Link className="nav-link">
                         CLIENT<i className="bi bi-star-fill"></i>
                       </Link>
-                    </li> 
+                    </li>
+                    <li onClick={() => logOut()} className="nav-item">
+                      <Link className="nav-link">
+                        LogOut<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
                   </>
                 )}
               </ul>
