@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Index'
@@ -12,7 +12,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -27,11 +27,14 @@ export const LoginPage = () => {
     try {
       e.preventDefault()
       const { data } = await axios.post('http://localhost:3000/user/login', form)
-      console.log(data.userLogged)
+      console.log(data.user)
       if (data.message) {
         alert(data.message)
         localStorage.setItem('token', data.token)
+        localStorage.setItem('_id', data.userLogged._id)
+        localStorage.setItem('role', data.userLogged.role)
         setDataUser(data.userLogged)
+        console.log(data, 'data', data.userLogged, 'ulogedd')
         setLoggedIn(true)
         navigate('/home')
       }
@@ -41,6 +44,8 @@ export const LoginPage = () => {
       throw new Error('Error in login')
     }
   }
+
+
   return (
     <>
       <section className="vh-100">
@@ -53,9 +58,7 @@ export const LoginPage = () => {
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5ZM9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8Zm1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Zm-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5ZM7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z" />
                 </svg>
                 </span>
-
               </div>
-
               <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
                 <form style={{ width: "23rem" }}>
@@ -64,8 +67,8 @@ export const LoginPage = () => {
 
                   <div className="form-outline mb-4">
                     <input
-                      type="text" id="loginUser" name='username' onChange={handleChange} placeholder='UserName' className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="form2Example18">Username</label>
+                      type="text" id="loginUser" name='email' onChange={handleChange} placeholder='Email' className="form-control form-control-lg" />
+                    <label className="form-label" htmlFor="form2Example18">Email</label>
                   </div>
 
                   <div className="form-outline mb-4">
@@ -78,10 +81,7 @@ export const LoginPage = () => {
                   <div className="pt-1 mb-4">
                     <button onClick={(e) => logIn(e)} type="button" className="btn btn-secondary">Login</button>
                   </div>
-
-
                 </form>
-
               </div>
 
             </div>
