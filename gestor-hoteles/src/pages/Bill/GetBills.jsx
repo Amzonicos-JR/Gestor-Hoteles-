@@ -29,10 +29,11 @@ export const GetBills = () => {
         <Link to={"add"}>
           <button className="btn btn-danger">+Add</button>
         </Link>
+        <div className="d-flex flex-wrap">
         {bills.map(({ _id, NIT, invoiceDetail, date, Total }, i) => (          
           <>
             <div
-              className="card border-info mb-3"
+              className="card border-info mb-3 d-inline-flex p-3 m-3"
               style={{ maxWidth: "18rem" }}
             >
               <div className="card-header">{NIT}</div>
@@ -41,16 +42,17 @@ export const GetBills = () => {
                 <h5 className="card-title">Total: {Total}</h5>
                 <div className="card-body">
                   <Link to={`update/${_id}`}>
-                    <button className="btn btn-warning">+Actualizar</button>
+                    <button className="btn btn-warning m-2">+Actualizar</button>
                   </Link>
                   <Link to={`get/${_id}`}>
-                    <button className="btn btn-info">See details</button>
+                    <button className="btn btn-info">Imprimir Factura</button>
                   </Link>                  
                 </div>
               </div>
             </div>
           </>
         ))}
+        </div>
       </div>
     </>
   );

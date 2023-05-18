@@ -5,6 +5,9 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
+// Importar register
+import RegisterPage from './pages/RegisterPage';
+
 
 /* ADMINAM [ROUTES] */
 // ROOMS [ROUTES]
@@ -41,6 +44,7 @@ export const Index = () => {
     })
 
     const [isAdmin, setIsAdmin] = useState('ADMIN');
+
     useEffect(() => {
         let token = localStorage.getItem('token')
         let role = localStorage.getItem('role')
@@ -147,6 +151,10 @@ export const Index = () => {
                 {
                     path: '/login',
                     element: <LoginPage></LoginPage>
+                },
+                {
+                    path: '/register',
+                    element: <RegisterPage/>
                 },
                 {
                     path: '/home',

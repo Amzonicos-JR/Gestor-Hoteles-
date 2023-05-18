@@ -17,6 +17,70 @@ export const DashboardPage = () => {
     service: false,
   });
 
+  const nav = () => {
+    let x = localStorage.getItem('role')
+    console.log(x)
+    return (
+      <>
+        {x === "ADMINAM" ? (
+          <>
+            <li className="nav-item">
+              <Link to={"rooms"} className="nav-link">
+                Room<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">
+                ADMINAM<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li onClick={() => logOut()} className="nav-item">
+              <Link className="nav-link">
+                LogOut<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+          </>
+        ) : x === "ADMIN" ? (
+          <>
+            <li className="nav-item">
+              <Link to={"invoicedetail"} className="nav-link">
+                Invoices Details<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"bill"} className="nav-link">
+                Bills<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link">
+                ADMIN<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li onClick={() => logOut()} className="nav-item">
+              <Link className="nav-link">
+                LogOut<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="nav-item">
+              <Link className="nav-link">
+                CLIENT<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li onClick={() => logOut()} className="nav-item">
+              <Link className="nav-link">
+                LogOut<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+          </>
+        )}
+      </>
+    )
+  }
+
   const logOut = () => {
     localStorage.clear();
     setLoggedIn(false);
@@ -46,6 +110,7 @@ export const DashboardPage = () => {
                 <span className="text-info"> Dashboard</span>
               </Link>
             </a>
+
             {/* <!-- boton del menu para resolucion movil --> */}
             <button
               className="navbar-toggler"
@@ -61,46 +126,7 @@ export const DashboardPage = () => {
             {/* <!-- elementos del menu responsive --> */}
             <div className="collapse navbar-collapse" id="menu">
               <ul className="navbar-nav me-auto">
-                {role === "ADMINAM" ? (
-                  <>
-                    <li className="nav-item">
-                      <Link to={"rooms"} className="nav-link">
-                        Room<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link">
-                        ADMINAM<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
-                  </>
-                ) : role === "ADMIN" ? (
-                  <>
-                    <li className="nav-item">
-                      <Link to={"invoicedetail"} className="nav-link">
-                        Invoices Details<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to={"bill"} className="nav-link">
-                        Bills<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link">
-                        ADMIN<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li className="nav-item">
-                      <Link className="nav-link">
-                        CLIENT<i className="bi bi-star-fill"></i>
-                      </Link>
-                    </li>
-                  </>
-                )}
+              {nav()}
               </ul>
               <hr className="d-md-none text-white-50" />
               {/* <!-- Iconos redes sociales --> */}

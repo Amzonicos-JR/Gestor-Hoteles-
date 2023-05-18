@@ -96,54 +96,63 @@ export const GetInvoiceDetailasPage = () => {
     <>
       <div className="container">
         <h1 className="container">
-          <Link to={'/home/invoicedetail'} className="btn btn-info">Regresar</Link>
+          <Link to={"/home/invoicedetail"} className="btn btn-info">
+            Regresar
+          </Link>
           Addtitional Services
         </h1>
       </div>
 
       <div className="container">
         <h2 className="text-center">My additional services</h2>
-        {as.map(({ _id, name, description, price }, i) => (
-          <>
-            <div
-              className="card border-warning mb-3"
-              style={{ maxWidth: "18rem" }}
-            >
-              <div className="card-header">{name}</div>
-              <div className="card-body">
-                <p className="card-text">{description}</p>
-                <h5 className="card-title">{price}</h5>
-                <button
-                  onClick={() => deleteAs(_id)}
-                  className="btn btn-danger"
-                >
-                  Quitar
-                </button>
+        <div className="d-flex flex-wrap">
+          {as.map(({ _id, name, description, price }, i) => (
+            <>
+              <div
+                className="card border-warning mb-3 d-inline-flex p-3 m-3"
+                style={{ maxWidth: "18rem" }}
+              >
+                <div className="card-header">{name}</div>
+                <div className="card-body">
+                  <p className="card-text">{description}</p>
+                  <h5 className="card-title">{price}</h5>
+                  <button
+                    onClick={() => deleteAs(_id)}
+                    className="btn btn-danger"
+                  >
+                    Quitar
+                  </button>
+                </div>
               </div>
-            </div>
-          </>
-        ))}
+            </>
+          ))}
+        </div>
       </div>
 
-      <div>
+      <div className="container">
         <h2> Services </h2>
-        {asNot.map(({ _id, name, description, price }, i) => (
-          <>
-            <div
-              className="card border-warning mb-3"
-              style={{ maxWidth: "18rem" }}
-            >
-              <div className="card-header">{name}</div>
-              <div className="card-body">
-                <p className="card-text">{description}</p>
-                <h5 className="card-title">{price}</h5>
-                <button onClick={() => addAs(_id)} className="btn btn-success">
-                  Agregar
-                </button>
+        <div className="d-flex flex-wrap">
+          {asNot.map(({ _id, name, description, price }, i) => (
+            <>
+              <div
+                className="card border-warning mb-3 d-inline-flex p-3 m-3"
+                style={{ maxWidth: "18rem" }}
+              >
+                <div className="card-header">{name}</div>
+                <div className="card-body">
+                  <p className="card-text">{description}</p>
+                  <h5 className="card-title">{price}</h5>
+                  <button
+                    onClick={() => addAs(_id)}
+                    className="btn btn-success"
+                  >
+                    Agregar
+                  </button>
+                </div>
               </div>
-            </div>
-          </>
-        ))}
+            </>
+          ))}
+        </div>
       </div>
     </>
   );
