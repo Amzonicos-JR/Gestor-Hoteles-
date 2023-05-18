@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useEffect } from "react";
 
 export const UpdateRoom = () => {
+    const [room, setRoom] = useState({});
     const navigate = useNavigate();
     const { _id } = useParams();
+
+    const getRoom = async () => {
+        try {
+            const { data } = await axios.get(`http://localhost:3000/room/get-id/${_id}`)
+            if (data.room) {
+                console.log(data.room, 'xxx')
+                setRoom(data.room)
+            }
+        } catch (err) {
+            console.log(err);
+            throw new Error(err.response.message || data, "Error getting rooms");
+        }
+
+    };
 
     const updateRoom = async (e) => {
         try {
@@ -15,7 +31,7 @@ export const UpdateRoom = () => {
                 price: document.getElementById('inputPrice').value
             }
 
-            const { data } = await axios.put(`http://localhost:3000/room/update-room/${_id}`, updateRoom)
+            const { data } = await axios.put(`http://localhost:3000/room/update-room/${id}`, updateRoom)
             alert(data.message)
             navigate('/home/rooms')
         } catch (err) {
@@ -23,21 +39,26 @@ export const UpdateRoom = () => {
         }
     }
 
+    useEffect(() => {
+        getRoom();
+    }, [])
     return (
         <>
-            <h1>Update Room</h1>
+            <h1 className='className="container d-flex justify-content-center align-items-center h-100"'>
+                Update Room
+            </h1>
             <form className="m-5 text-center">
                 <div className="mb-3">
                     <label htmlFor="inputNO" className="form-label">Number Room</label>
-                    <input type="number" className="form-control" id="inputNO" required />
+                    <input type="number" className="form-control" id="inputNO" defaultValue={room.numberRoom} required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputAP" className="form-label">AmounPeople</label>
-                    <input type="number" className="form-control" id="inputAP" required />
+                    <input type="number" className="form-control" id="inputAP" defaultValue={room.amountPeople} required />
                 </div>
                 <div>
                     <label htmlFor="inputPrice" className="form-label">Price</label>
-                    <input type="number" className="form-control" id="inputPrice" required />
+                    <input type="number" className="form-control" id="inputPrice" defaultValue={room.price} required />
                 </div>
                 <br></br>
                 <button onClick={(e) => updateRoom(e)} className="btn btn-success m-1">Update</button>
