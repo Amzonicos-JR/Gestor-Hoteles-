@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Index'
-import bl from '../assets/bodegaL.png'
+import bl from '../assets/imagenLogiin.png'
 import '../Login.css'
 
 
@@ -12,7 +12,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -27,13 +27,16 @@ export const LoginPage = () => {
     try {
       e.preventDefault()
       const { data } = await axios.post('http://localhost:3000/user/login', form)
-      console.log(data.userLogged)
+      console.log(data.user)
       if (data.message) {
         alert(data.message)
         localStorage.setItem('token', data.token)
+        localStorage.setItem('_id', data.userLogged._id)
+        localStorage.setItem('role', data.userLogged.role)
         setDataUser(data.userLogged)
+        console.log(data, 'data', data.userLogged, 'ulogedd')
         setLoggedIn(true)
-        navigate('/')
+        navigate('/home')
       }
     } catch (err) {
       console.log(err)
@@ -41,6 +44,15 @@ export const LoginPage = () => {
       throw new Error('Error in login')
     }
   }
+
+  // const register = async(e)=>{
+  //   try{
+  //     e.preventDefault();
+  //     navigate('/register')
+  //   }
+  // }
+
+
   return (
     <>
       <section className="vh-100">
@@ -49,13 +61,11 @@ export const LoginPage = () => {
             <div className="col-sm-6 text-black">
 
               <div className="px-5 ms-xl-4">
-                <span className="h1 fw-bold mb-0">KINAL S.A                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-person-vcard-fill" viewBox="0 0 16 16">
-                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5ZM9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8Zm1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Zm-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5ZM7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z" />
+                <span className="h1 fw-bold mb-0">KINALGO K.N                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-airplane" viewBox="0 0 16 16">
+                  <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z" />
                 </svg>
                 </span>
-
               </div>
-
               <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
                 <form style={{ width: "23rem" }}>
@@ -64,24 +74,24 @@ export const LoginPage = () => {
 
                   <div className="form-outline mb-4">
                     <input
-                      type="text" id="loginUser" name='username' onChange={handleChange} placeholder='UserName' className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="form2Example18">Username</label>
+                      type="text" id="loginUser" name='email' onChange={handleChange} placeholder='Email' className="form-control form-control-lg" />
+                    <label className="form-label" htmlFor="form2Example18">Email</label>
                   </div>
 
-                  <div className="form-outline mb-4">
+                  <div className="form-outline mb-1">
                     <input
                       type="password" id="LoginPassword" name='password' onChange={handleChange} placeholder='Password'
                       className="form-control form-control-lg" />
                     <label className="form-label" htmlFor="form2Example28">Password</label>
                   </div>
 
-                  <div className="pt-1 mb-4">
-                    <button onClick={(e) => logIn(e)} type="button" className="btn btn-secondary">Login</button>
+                  <div className="">
+                    <button onClick={(e) => logIn(e)} type="button" className="btn btn-outline-dark m-1">Login</button>
+                    <Link to='/register'>
+                      <button type="button" className="btn btn-outline-dark m-1">Register</button>
+                    </Link>
                   </div>
-
-
                 </form>
-
               </div>
 
             </div>
@@ -89,9 +99,10 @@ export const LoginPage = () => {
               <img src={bl}
                 alt="Login image" className="w-100 vh-100" style={{ objectFit: "cover" }} />
             </div>
+
           </div>
-        </div>
-      </section>
+        </div >
+      </section >
     </>
   )
 }

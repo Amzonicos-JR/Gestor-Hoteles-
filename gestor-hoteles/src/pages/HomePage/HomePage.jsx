@@ -63,7 +63,7 @@ export const HomePage = () => {
             <div className="collapse navbar-collapse" id="mynavbar">
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
-                  
+
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#book">
@@ -91,7 +91,7 @@ export const HomePage = () => {
                   </a>
                 </li>
               </ul>
-              
+
             </div>
           </div>
         </nav>
@@ -102,7 +102,7 @@ export const HomePage = () => {
               Visita <span className="changecontent"></span>
             </h1>
             <p>
-              Somos la mejor opción en ofertas de hoteles 
+              Somos la mejor opción en ofertas de hoteles
             </p>
             <a href="#about">Conocenos</a>
           </div>
@@ -156,18 +156,20 @@ export const HomePage = () => {
                     name="text"
                     placeholder="Ingrese datos persona de la reservacion"
                   ></textarea>
-                  <input
-                    type="submit"
-                    value="Reservar"
-                    className="submit"
-                    required
-                  />
+                  <Link to='/login'>
+                    <input
+                      type="submit"
+                      value="Reservar"
+                      className="submit"
+                      required
+                    />
+                  </Link>
                 </form>
               </div>
             </div>
           </div>
         </section>
-        
+
         <section className="packages" id="packages">
           <div className="container">
             <div className="main-txt">
@@ -251,8 +253,8 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Hotel Times Square</h3>
                     <p>
-                    Hotel Times Square  para disfrutar de un lujoso alojamiento,
-                    modernas amenidades y servicios de primera clase.
+                      Hotel Times Square  para disfrutar de un lujoso alojamiento,
+                      modernas amenidades y servicios de primera clase.
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
@@ -274,8 +276,8 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Flamingo Hotel & Casino</h3>
                     <p>
-                    Flamingo Las Vegas Hotel & Casino es un complejo hotelero de 
-                    3 estrellas que alberga unas completas instalaciones
+                      Flamingo Las Vegas Hotel & Casino es un complejo hotelero de
+                      3 estrellas que alberga unas completas instalaciones
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
@@ -297,8 +299,8 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Excalibur Hotel Casino</h3>
                     <p>
-                    Excalibur Hotel Casino, de 3 estrellas, se encuentra en pleno 
-                    centro de la privilegiada zona de Las Vegas Strip.
+                      Excalibur Hotel Casino, de 3 estrellas, se encuentra en pleno
+                      centro de la privilegiada zona de Las Vegas Strip.
                     </p>
                     <div className="star">
                       <i className="fa-solid fa-star checked"></i>
@@ -331,7 +333,7 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Los mejores Hoteles</h3>
                     <p>
-                     Trabajamos con los mejores hoteles de cada país para mejor comodida para nuestros clíentes. 
+                      Trabajamos con los mejores hoteles de cada país para mejor comodida para nuestros clíentes.
                     </p>
                   </div>
                 </div>
@@ -342,7 +344,7 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Comidas & Drinks</h3>
                     <p>
-                     Cada reservacion de hotel cuenta con buffet incluido, como tambien bebidas incluidas en el bar.
+                      Cada reservacion de hotel cuenta con buffet incluido, como tambien bebidas incluidas en el bar.
                     </p>
                   </div>
                 </div>
@@ -353,7 +355,7 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Guía de Seguridad</h3>
                     <p>
-                      También cuenta con guia personal , para conocer los lugares más turisticos en la zona. 
+                      También cuenta con guia personal , para conocer los lugares más turisticos en la zona.
                     </p>
                   </div>
                 </div>
@@ -366,7 +368,7 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Alrededor del mundo</h3>
                     <p>
-                      Trabajamos con los mejores hoteles en todos los paises del mundo. 
+                      Trabajamos con los mejores hoteles en todos los paises del mundo.
                     </p>
                   </div>
                 </div>
@@ -377,7 +379,7 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Viajes Seguros</h3>
                     <p>
-                      Trabajamos con las mejores compañías aerolineas para mejor servicio. 
+                      Trabajamos con las mejores compañías aerolineas para mejor servicio.
                     </p>
                   </div>
                 </div>
@@ -388,7 +390,7 @@ export const HomePage = () => {
                   <div className="card-body">
                     <h3>Actividades</h3>
                     <p>
-                      Contamos con actividades como tenis, cata de vinos, natación y mucho más. 
+                      Contamos con actividades como tenis, cata de vinos, natación y mucho más.
                     </p>
                   </div>
                 </div>
@@ -443,7 +445,7 @@ export const HomePage = () => {
           <div className="container">
             <div className="main-txt">
               <h1>
-              <span>C</span>onoce <span>S</span>obre <span>N</span>osotros 
+                <span>C</span>onoce <span>S</span>obre <span>N</span>osotros
               </h1>
             </div>
             <div className="row" style={{ marginTop: 50 + 'px' }}>
@@ -461,10 +463,10 @@ export const HomePage = () => {
                 </p>
                 <h2>Mision</h2>
                 <p>
-                Nuestra misión es ofrecer un servicio seguro, confiable y eficaz a todos nuestros clientes, contamos 
-                con distintos precios, muy accesibles y cómodos..
+                  Nuestra misión es ofrecer un servicio seguro, confiable y eficaz a todos nuestros clientes, contamos
+                  con distintos precios, muy accesibles y cómodos..
                 </p>
-                
+
               </div>
             </div>
           </div>
