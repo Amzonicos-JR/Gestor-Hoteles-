@@ -6,11 +6,15 @@ import { LoginPage } from './pages/LoginPage';
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
 // Importar register
 import RegisterPage from './pages/RegisterPage';
 
 
 /* ADMINAM [ROUTES] */
+<<<<<<< HEAD
 =======
 
 /* ADMINAM [ROUTES] */
@@ -25,12 +29,18 @@ import { GetServices } from './pages/AdditionalServices/GetServices'
 import { Add } from './pages/AdditionalServices/AddService'
 import { Update } from './pages/AdditionalServices/UpdateService'; 
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
 // ROOMS [ROUTES]
 import { RoomPage } from './pages/Rooms/RoomPage';
 import { GetRooms } from './pages/Rooms/GetRooms';
 import { ADDR } from './pages/Rooms/addR';
 import { UpdateRoom } from './pages/Rooms/UpdateRoom';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> asumpango-2018373
 /* ADMIN [ROUTES] */
 //invoices details
 import { InvoiceDetailPage } from './pages/InvoiceDetail/InvoiceDetailPage';
@@ -46,11 +56,20 @@ import { AddBill } from './pages/Bill/AddBill';
 import { UpdateBill } from './pages/Bill/UpdateBill';
 import { GetBill } from './pages/Bill/GetBill';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import ReservatonPage from './pages/Reservation/ReservatonPage';
 import ReservationPageAM from './pages/Reservation/ReservationPageAM';
 import GraphicsPage from './pages/GraphicsPage';
 >>>>>>> jperez-2018495
+=======
+
+//USERS
+import { UserPage } from './pages/Users/UserPage';
+import { AddUser } from './pages/Users/AddUser';
+import { GetUser } from './pages/Users/GetUser';
+import { UpdateUser } from './pages/Users/UpdateUser';
+>>>>>>> asumpango-2018373
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -66,10 +85,14 @@ export const Index = () => {
 
     const [isAdmin, setIsAdmin] = useState('ADMIN');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> jperez-2018495
+=======
+
+>>>>>>> asumpango-2018373
     useEffect(() => {
         let token = localStorage.getItem('token')
         let role = localStorage.getItem('role')
@@ -99,6 +122,7 @@ export const Index = () => {
                     element: <UpdateRoom></UpdateRoom>
                 }
             ]
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         },
@@ -146,6 +170,26 @@ export const Index = () => {
             path: 'graficas',
             element: <GraphicsPage></GraphicsPage>
 >>>>>>> jperez-2018495
+=======
+        },
+        {
+            path: 'users',
+            element: <UserPage></UserPage>,
+            children: [
+                {
+                    path: '',
+                    element: <GetUser></GetUser>
+                },
+                {
+                    path: 'adduser',
+                    element: <AddUser></AddUser>
+                },
+                {
+                    path: 'updateuser/:_id',
+                    element: <UpdateUser></UpdateUser>
+                }
+            ]
+>>>>>>> asumpango-2018373
         }
         //EVENTO
         //SERVICIOS
@@ -208,6 +252,7 @@ export const Index = () => {
 
     const CLIENTRoutes = [
 <<<<<<< HEAD
+<<<<<<< HEAD
         //RESERVACIÓN
 =======
         {
@@ -215,6 +260,9 @@ export const Index = () => {
             element: <ReservatonPage></ReservatonPage>
         }
 >>>>>>> jperez-2018495
+=======
+        //RESERVACIÓN
+>>>>>>> asumpango-2018373
     ]
 
     const routes = createBrowserRouter([
@@ -233,12 +281,18 @@ export const Index = () => {
                 },
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
                     path: '/register',
                     element: <RegisterPage/>
                 },
                 {
+<<<<<<< HEAD
 =======
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
                     path: '/home',
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
                     children: role === "ADMINAM" ? ADMINAMRoutes :

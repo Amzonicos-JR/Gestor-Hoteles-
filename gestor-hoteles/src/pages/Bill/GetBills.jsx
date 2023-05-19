@@ -43,16 +43,22 @@ export const GetBills = () => {
                 <div className="card-body">
                   <Link to={`update/${_id}`}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
                     <button className="btn btn-warning m-2">+Actualizar</button>
                   </Link>
                   <Link to={`get/${_id}`}>
                     <button className="btn btn-info">Imprimir Factura</button>
+<<<<<<< HEAD
 =======
                     <button className="btn btn-warning">+Actualizar</button>
                   </Link>
                   <Link to={`get/${_id}`}>
                     <button className="btn btn-info">See details</button>
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
                   </Link>                  
                 </div>
               </div>

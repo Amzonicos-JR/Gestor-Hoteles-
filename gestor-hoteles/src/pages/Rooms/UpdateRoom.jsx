@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
 import { useEffect } from "react";
 
 export const UpdateRoom = () => {
@@ -23,6 +26,7 @@ export const UpdateRoom = () => {
 
     };
 
+<<<<<<< HEAD
 =======
 
 export const UpdateRoom = () => {
@@ -30,6 +34,8 @@ export const UpdateRoom = () => {
     const { _id } = useParams();
 
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
     const updateRoom = async (e) => {
         try {
             e.preventDefault();
@@ -40,10 +46,14 @@ export const UpdateRoom = () => {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             const { data } = await axios.put(`http://localhost:3000/room/update-room/${id}`, updateRoom)
 =======
             const { data } = await axios.put(`http://localhost:3000/room/update-room/${_id}`, updateRoom)
 >>>>>>> jperez-2018495
+=======
+            const { data } = await axios.put(`http://localhost:3000/room/update-room/${id}`, updateRoom)
+>>>>>>> asumpango-2018373
             alert(data.message)
             navigate('/home/rooms')
         } catch (err) {
@@ -52,6 +62,9 @@ export const UpdateRoom = () => {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
     useEffect(() => {
         getRoom();
     }, [])
@@ -72,6 +85,7 @@ export const UpdateRoom = () => {
                 <div>
                     <label htmlFor="inputPrice" className="form-label">Price</label>
                     <input type="number" className="form-control" id="inputPrice" defaultValue={room.price} required />
+<<<<<<< HEAD
 =======
     return (
         <>
@@ -89,6 +103,8 @@ export const UpdateRoom = () => {
                     <label htmlFor="inputPrice" className="form-label">Price</label>
                     <input type="number" className="form-control" id="inputPrice" required />
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
                 </div>
                 <br></br>
                 <button onClick={(e) => updateRoom(e)} className="btn btn-success m-1">Update</button>

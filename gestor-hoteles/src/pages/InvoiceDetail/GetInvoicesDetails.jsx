@@ -70,6 +70,9 @@ export const GetInvoicesDetails = () => {
                     <Link
                       to={`additionalservices/${_id}`}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
                       className="btn btn-info m-1"
                     >
                       <p className="card-text">Servicios</p>
@@ -78,6 +81,7 @@ export const GetInvoicesDetails = () => {
                       <p className="card-text ">Eventos</p>
                     </Link>
                     <h5 className="card-title ">Total: {subTotalAccount}</h5>
+<<<<<<< HEAD
 =======
                       className="btn btn-info"
                     >
@@ -88,6 +92,8 @@ export const GetInvoicesDetails = () => {
                     </Link>
                     <h5 className="card-title">Total: {subTotalAccount}</h5>
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
                     <div className="card-body">
                       <button
                         className="btn btn-danger"

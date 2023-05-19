@@ -16,6 +16,9 @@ export const DashboardPage = () => {
     account: false,
     service: false,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> asumpango-2018373
   });
 
   const nav = () => {
@@ -31,6 +34,14 @@ export const DashboardPage = () => {
               </Link>
             </li>
             <li className="nav-item">
+<<<<<<< HEAD
+=======
+              <Link to={"users"} className="nav-link">
+                User<i className="bi bi-star-fill"></i>
+              </Link>
+            </li>
+            <li className="nav-item">
+>>>>>>> asumpango-2018373
               <Link className="nav-link">
                 ADMINAM<i className="bi bi-star-fill"></i>
               </Link>
@@ -82,6 +93,7 @@ export const DashboardPage = () => {
     )
   }
 
+<<<<<<< HEAD
 =======
     reservation: false,
     reservations: false,
@@ -89,6 +101,8 @@ export const DashboardPage = () => {
   });
 
 >>>>>>> jperez-2018495
+=======
+>>>>>>> asumpango-2018373
   const logOut = () => {
     localStorage.clear();
     setLoggedIn(false);
@@ -134,6 +148,7 @@ export const DashboardPage = () => {
             {/* <!-- elementos del menu responsive --> */}
             <div className="collapse navbar-collapse" id="menu">
               <ul className="navbar-nav me-auto">
+<<<<<<< HEAD
 <<<<<<< HEAD
               {nav()}
 =======
@@ -218,6 +233,9 @@ export const DashboardPage = () => {
                   </>
                 )}
 >>>>>>> jperez-2018495
+=======
+              {nav()}
+>>>>>>> asumpango-2018373
               </ul>
               <hr className="d-md-none text-white-50" />
               {/* <!-- Iconos redes sociales --> */}
