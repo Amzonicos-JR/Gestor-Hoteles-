@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export const Update = () => {
     const navigate = useNavigate();
-    const { service, setService } = useState({});
+    const  [service, setService ] = useState({});
     const { _id } = useParams();
 
 
@@ -50,15 +50,15 @@ export const Update = () => {
             <form className="m-5 text-center">
                 <div className="mb-3">
                     <label htmlFor="inputName" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="inputName"  required />
+                    <input type="text" className="form-control" id="inputName" defaultValue={service.name} required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputDescription" className="form-label">Description</label>
-                    <input type="text" className="form-control" id="inputDescription" required />
+                    <input type="text" className="form-control" id="inputDescription" defaultValue={service.description} required />
                 </div>
                 <div>
                     <label htmlFor="inputPrice" className="form-label">Price</label>
-                    <input type="Number" className="form-control" id="inputPrice" required />
+                    <input type="Number" className="form-control" id="inputPrice" defaultValue={service.price} required />
                 </div>
                 <br></br>
                 <button onClick={(e) => updateService(e)} className="btn btn-success m-1">Update</button>

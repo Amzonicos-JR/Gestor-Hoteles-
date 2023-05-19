@@ -45,10 +45,6 @@ export const LoginPage = () => {
     }
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> asumpango-2018373
   // const register = async(e)=>{
   //   try{
   //     e.preventDefault();
@@ -56,11 +52,6 @@ export const LoginPage = () => {
   //   }
   // }
 
-<<<<<<< HEAD
-=======
->>>>>>> jperez-2018495
-=======
->>>>>>> asumpango-2018373
 
   return (
     <>
