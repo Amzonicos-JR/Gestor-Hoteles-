@@ -15,6 +15,7 @@ export const DashboardPage = () => {
     user: false,
     account: false,
     service: false,
+<<<<<<< HEAD
   });
 
   const nav = () => {
@@ -81,6 +82,13 @@ export const DashboardPage = () => {
     )
   }
 
+=======
+    reservation: false,
+    reservations: false,
+    graficas: false
+  });
+
+>>>>>>> jperez-2018495
   const logOut = () => {
     localStorage.clear();
     setLoggedIn(false);
@@ -126,7 +134,90 @@ export const DashboardPage = () => {
             {/* <!-- elementos del menu responsive --> */}
             <div className="collapse navbar-collapse" id="menu">
               <ul className="navbar-nav me-auto">
+<<<<<<< HEAD
               {nav()}
+=======
+                {role === "ADMINAM" ? (
+                  <>
+                  <li className="nav-item">
+                      <Link to={"graficas"} className="nav-link">
+                        Graficas<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"reservations"} className="nav-link">
+                        Reservations<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"rooms"} className="nav-link">
+                        Room<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"services"} className="nav-link">
+                        Service<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"events"} className="nav-link">
+                        Events<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link">
+                        ADMINAM<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li onClick={() => logOut()} className="nav-item">
+                      <Link className="nav-link">
+                        LogOut<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                  </>
+                ) : role === "ADMIN" ? (
+                  <>
+                    <li className="nav-item">
+                      <Link to={"invoicedetail"} className="nav-link">
+                        Invoices Details<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"bill"} className="nav-link">
+                        Bills<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link">
+                        ADMIN<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li onClick={() => logOut()} className="nav-item">
+                      <Link className="nav-link">
+                        LogOut<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <Link to={"reservation"} className="nav-link">
+                        Reservation<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link">
+                        CLIENT<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                    <li onClick={() => logOut()} className="nav-item">
+                      <Link className="nav-link">
+                        LogOut<i className="bi bi-star-fill"></i>
+                      </Link>
+                    </li>
+                  </>
+                )}
+>>>>>>> jperez-2018495
               </ul>
               <hr className="d-md-none text-white-50" />
               {/* <!-- Iconos redes sociales --> */}

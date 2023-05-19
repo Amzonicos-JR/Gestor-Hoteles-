@@ -45,6 +45,7 @@ export const LoginPage = () => {
     }
   }
 
+<<<<<<< HEAD
   // const register = async(e)=>{
   //   try{
   //     e.preventDefault();
@@ -52,6 +53,8 @@ export const LoginPage = () => {
   //   }
   // }
 
+=======
+>>>>>>> jperez-2018495
 
   return (
     <>

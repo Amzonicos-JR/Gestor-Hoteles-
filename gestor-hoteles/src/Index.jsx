@@ -5,11 +5,26 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import App from './App'
 import { DashboardPage } from './pages/DashboardPage/DashboardPage';
+<<<<<<< HEAD
 // Importar register
 import RegisterPage from './pages/RegisterPage';
 
 
 /* ADMINAM [ROUTES] */
+=======
+
+/* ADMINAM [ROUTES] */
+// EVENTS [ROUTES]
+import { EventPage } from './pages/Events_/EventPage';
+import { GetEvents } from './pages/Events_/GetEvents';
+import { AddEvent } from './pages/Events_/AddEvent';
+import { UpdateEvent } from './pages/Events_/UpdateEvent';
+// SERVICES [ROUTES]
+import { ServicePage } from './pages/AdditionalServices/ServicePage'
+import { GetServices } from './pages/AdditionalServices/GetServices' 
+import { Add } from './pages/AdditionalServices/AddService'
+import { Update } from './pages/AdditionalServices/UpdateService'; 
+>>>>>>> jperez-2018495
 // ROOMS [ROUTES]
 import { RoomPage } from './pages/Rooms/RoomPage';
 import { GetRooms } from './pages/Rooms/GetRooms';
@@ -30,6 +45,12 @@ import { GetBills } from './pages/Bill/GetBills';
 import { AddBill } from './pages/Bill/AddBill';
 import { UpdateBill } from './pages/Bill/UpdateBill';
 import { GetBill } from './pages/Bill/GetBill';
+<<<<<<< HEAD
+=======
+import ReservatonPage from './pages/Reservation/ReservatonPage';
+import ReservationPageAM from './pages/Reservation/ReservationPageAM';
+import GraphicsPage from './pages/GraphicsPage';
+>>>>>>> jperez-2018495
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -44,7 +65,11 @@ export const Index = () => {
     })
 
     const [isAdmin, setIsAdmin] = useState('ADMIN');
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> jperez-2018495
     useEffect(() => {
         let token = localStorage.getItem('token')
         let role = localStorage.getItem('role')
@@ -74,6 +99,53 @@ export const Index = () => {
                     element: <UpdateRoom></UpdateRoom>
                 }
             ]
+<<<<<<< HEAD
+=======
+        },
+            //SERVICES
+         {
+        path: 'services',
+        element: <ServicePage></ServicePage>,
+         children: [
+            {
+                path: '',
+                element: <GetServices></GetServices>
+            },
+             {
+                path: 'addservice',
+                element: <Add></Add>
+            },{
+                path: 'updateservice/:_id',
+                element: <Update></Update>
+            }
+        ]   
+    },
+    //EVENTS
+        {
+        path: 'events',
+        element: <EventPage></EventPage>,
+          children: [
+            {
+                path: '',
+                element: <GetEvents></GetEvents>
+            },
+             {
+                path: 'addevent',
+                element: <AddEvent></AddEvent>
+            },{
+                path: 'updateevent/:_id',
+                element: <UpdateEvent></UpdateEvent>
+            } 
+        ]    
+    },
+        {
+            path: 'reservations',
+            element: <ReservationPageAM></ReservationPageAM>
+        },
+        {
+            path: 'graficas',
+            element: <GraphicsPage></GraphicsPage>
+>>>>>>> jperez-2018495
         }
         //EVENTO
         //SERVICIOS
@@ -135,7 +207,14 @@ export const Index = () => {
     ]
 
     const CLIENTRoutes = [
+<<<<<<< HEAD
         //RESERVACIÓN
+=======
+        {
+            path: 'reservation',
+            element: <ReservatonPage></ReservatonPage>
+        }
+>>>>>>> jperez-2018495
     ]
 
     const routes = createBrowserRouter([
@@ -153,10 +232,13 @@ export const Index = () => {
                     element: <LoginPage></LoginPage>
                 },
                 {
+<<<<<<< HEAD
                     path: '/register',
                     element: <RegisterPage/>
                 },
                 {
+=======
+>>>>>>> jperez-2018495
                     path: '/home',
                     element: loggedIn ? <DashboardPage></DashboardPage> : <LoginPage></LoginPage>,
                     children: role === "ADMINAM" ? ADMINAMRoutes :

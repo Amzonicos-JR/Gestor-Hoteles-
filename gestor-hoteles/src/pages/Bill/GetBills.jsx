@@ -42,10 +42,17 @@ export const GetBills = () => {
                 <h5 className="card-title">Total: {Total}</h5>
                 <div className="card-body">
                   <Link to={`update/${_id}`}>
+<<<<<<< HEAD
                     <button className="btn btn-warning m-2">+Actualizar</button>
                   </Link>
                   <Link to={`get/${_id}`}>
                     <button className="btn btn-info">Imprimir Factura</button>
+=======
+                    <button className="btn btn-warning">+Actualizar</button>
+                  </Link>
+                  <Link to={`get/${_id}`}>
+                    <button className="btn btn-info">See details</button>
+>>>>>>> jperez-2018495
                   </Link>                  
                 </div>
               </div>
