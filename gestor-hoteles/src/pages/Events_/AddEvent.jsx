@@ -36,7 +36,7 @@ export const AddEvent = () => {
 
     return (
         <>
-            <h1>Agregar Events</h1>
+            <h1 className="text-center">Agregar Events</h1>
             <form className="m-5 text-center">
                 <div className="mb-3">
                     <label htmlFor="inputName" className="form-label">Name</label>

@@ -36,7 +36,7 @@ export const Add = () => {
 
     return (
         <>
-            <h1>Agregar Service</h1>
+            <h1 className="text-center"> Agregar Service</h1>
             <form className="m-5 text-center">
                 <div className="mb-3">
                     <label htmlFor="inputName" className="form-label">Name</label>

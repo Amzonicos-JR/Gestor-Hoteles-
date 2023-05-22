@@ -36,7 +36,7 @@ export const ADDR = () => {
 
     return (
         <>
-            <h1>Agregar Room</h1>
+            <h1 className="text-center">Agregar Rooms</h1>
             <form className="m-5 text-center">
                 <div className="mb-3">
                     <label htmlFor="inputNO" className="form-label">Number Room</label>

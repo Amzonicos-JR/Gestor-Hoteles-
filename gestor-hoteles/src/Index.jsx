@@ -47,6 +47,7 @@ import { GetBill } from './pages/Bill/GetBill';
 import ReservatonPage from './pages/Reservation/ReservatonPage';
 import ReservationPageAM from './pages/Reservation/ReservationPageAM';
 import GraphicsPage from './pages/GraphicsPage';
+import RegisterPage from './pages/RegisterPage';
 
 export const AuthContext = createContext();
 export const Index = () => {
@@ -231,6 +232,10 @@ export const Index = () => {
                 {
                     path: '/login',
                     element: <LoginPage></LoginPage>
+                },
+                {
+                    path: 'register',
+                    element: <RegisterPage/>
                 },
                 {
                     path: '/home',
